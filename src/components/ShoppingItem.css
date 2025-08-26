@@ -1,0 +1,18 @@
+.item-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+
+.item-name {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.item-name.purchased {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

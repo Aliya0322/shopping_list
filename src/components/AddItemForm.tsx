@@ -1,9 +1,9 @@
-import { useState} from "react";
 import type {FormEvent, ChangeEvent} from "react";
 import './AddItemForm.css'
+import {usePersistentState} from "../hooks/usePersistentState.ts";
 
 export default function AddItemForm({ onAdd }: { onAdd: (title: string) => void }) {
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = usePersistentState("title","");
 
 
 function handleSubmit(e: FormEvent) {
@@ -22,15 +22,15 @@ function handleChange(e: ChangeEvent<HTMLInputElement>) {
 
 return (
 <form onSubmit={handleSubmit} className="form">
-<input
-aria-label="Название товара"
-value={title}
-onChange={handleChange}
-placeholder="Например: молоко"
-className="input"
+    <input
+    aria-label="Название товара"
+    value={title}
+    onChange={handleChange}
+    placeholder="Например: молоко"
+    className="input"
 />
 <button type="submit" className = "submit-btn">
-Добавить
+    Добавить
 </button>
 </form>
 );

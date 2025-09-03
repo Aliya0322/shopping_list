@@ -2,7 +2,8 @@ import AddItemForm from "./components/AddItemForm";
 import ShoppingList from "./components/ShoppingList";
 import { makeId } from "./components/Helper";
 import './App.css'
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import {usePersistentState} from "./hooks/usePersistentState.ts";
 
 
 export type Item = {
@@ -12,7 +13,7 @@ export type Item = {
 };
 
 export default function App() {
-const [items, setItems] = useState<Item[]>([]);
+const [items, setItems] = usePersistentState<Item[]>("shopping-list",[]);
 
 
 const remaining = useMemo(() => items.filter((i) => !i.purchased).length, [items]);

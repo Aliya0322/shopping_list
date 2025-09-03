@@ -20,10 +20,12 @@ export default function ShoppingList({
 
 
 return (
-<span>
+<ul className="shopping-list">
     {items.map((it) => (
-        <ShoppingItem key={it.id} item={it} onToggle={onToggle} onDelete={onDelete} />
+      <li key={it.id}>
+        <ShoppingItem item={it} onToggle={onToggle} onDelete={onDelete} />
+      </li>
         ))}
-</span>
+</ul>
 );
 }
